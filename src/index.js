@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css'
 
+import Button from '@material-ui/core/Button'
+
 function Square(props) {
     return (
         <button className="square" onClick={props.onClick}>
@@ -9,7 +11,7 @@ function Square(props) {
         </button>
     );
 }
-
+// Class component
 class Board extends React.Component {
 
     renderSquare(i) {
@@ -43,7 +45,7 @@ class Board extends React.Component {
         );
     }
 }
-
+// Class Component
 class Game extends React.Component {
     constructor(props) {
         super(props);
@@ -92,7 +94,7 @@ class Game extends React.Component {
                 'Go to game start';
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <Button color="primary" onClick={() => this.jumpTo(move)}>{desc}</Button>
                 </li>
             );
         });
@@ -142,7 +144,11 @@ function calculateWinner(squares) {
 
 // ========================================
 
+
 ReactDOM.render(
-    <Game/>,
+    <div>
+        <h2> Tic Tac Toe </h2>
+        <Game/>
+    </div>,
     document.getElementById('root')
 );
